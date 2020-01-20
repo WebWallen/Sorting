@@ -4,16 +4,17 @@ def selection_sort( arr ):
     for i in range(0, len(arr) - 1):
         # Step 2: assign i as the current index
         cur_index = i
-        # Step 3: loop through rest of array after incrementing
+        # Step 3: increment i and start new loop so we can find the smallest number
         for j in range(i + 1, len(arr)):
             # Step 4: conditional logic to compare i and j (don't forget to use square brackets when array is involved) 
             if arr[j] < arr[cur_index]:
                 # Step 5: If j is smaller than i, assign it to current index
                 cur_index = j
-        # Step 6: Specify what happens after reassignment
+        # Step 6: specify what happens after reassignment
         if i != cur_index:
-            # Step 7: restart the loop and start comparing again with new index
+            # Step 7: restart the loop and begin comparing again with new index
             arr[i], arr[cur_index] = arr[cur_index], arr[i]
+    # Step 8: return the newly sorted array
     return arr
 
 arr = [1, 4, 7, 3, 0, 8, 9, 3]
