@@ -46,6 +46,31 @@ def merge( left, right ):
 
 print(merge_sort(arr))
 
+# QUICK SORT (everything to left of pivot smaller, everything to right larger)
+def quick_sort(arr):
+    # Step 1: set up base case (return array when 1 or less items left -- nothing left to sort)
+    if len(arr) <= 1:
+        return arr
+    # Step 2: choose pivot (base of comparison) index and assign to a variable (-1 means last index)
+    pivot = arr[-1]
+    # Step 3: create empty arrays for both smaller and larger elements so they can be sorted inside
+    smaller = []
+    larger = []
+    # Step 4: begin for loop -- remember it is typically array length minus one (account for pivot)
+    for i in range(len(arr) - 1):
+        # Step 5: optional -- assign index to element variable for more explicit/obvious code
+        element = arr[i]
+        # Step 6: if the element is smaller than pivot, append inside the smaller array
+        if element < pivot:
+            smaller.append(element)
+        # Step 7: if the element is larger than pivot, append inside the larger array
+        else:
+            larger.append(element)
+        # Step 8: do another quick_sort on both larger and smaller nums, repeat until sorted, add with pivot in middle
+    return quick_sort(smaller) + [pivot] + quick_sort(larger) # square brackets because we're adding three arrays
+
+print(quick_sort(arr))
+
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
     # TO-DO
