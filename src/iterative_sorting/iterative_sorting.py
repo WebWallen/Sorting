@@ -1,5 +1,27 @@
 import random
 
+arr = [8, 4, 2, 1, 6, 9, 7, 3, 5]
+
+def insertion_sort(arr):
+    # Step 1: loop elements except first (considered sorted)
+    for i in range(1, len(arr)):
+        # Step 2: set up second loop comparing first/second index
+        j = i - 1
+        # Step 3: write conditional logic RE: the relevant comparison
+        while arr[j] > arr[j + 1] and j >= 0:
+            # Step 4: specify what happens when first element is bigger than second
+            if arr[j] > arr[j + 1]:
+                # Step 5: swap the smaller element in front of second and loop again
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                # Step 6: decrement the loop and repeat until everything is sorted
+                j -= 1
+                print(arr)
+            else: 
+                break
+    return arr
+
+insertion_sort(arr)
+
 # TO-DO: Complete the selection_sort() function below 
 def selection_sort( arr ):
     # Step 1: loop through n - 1 elements
@@ -16,15 +38,14 @@ def selection_sort( arr ):
         if i != cur_index:
             # Step 7: restart the loop and begin comparing again with new index
             arr[i], arr[cur_index] = arr[cur_index], arr[i]
+            print(arr)
     # Step 8: return the newly sorted array
     return arr
 
-# arr = random.sample(range(200), 50)
-# print('Selection sort: ', selection_sort(arr))
+# selection_sort(arr)
 
 
 # TO-DO:  implement the Bubble Sort function below
-arr = [8, 4, 2, 1, 6, 9, 7, 3, 5]
 def bubble_sort( arr ):
     # Step 1: set up the first for loop
     for i in range(0, len(arr) - 1):
@@ -37,9 +58,7 @@ def bubble_sort( arr ):
                 print(arr)
     return arr
 
-bubble_sort(arr)
-# print('Bubble sort: ', bubble_sort(arr))
-
+# bubble_sort(arr)
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
